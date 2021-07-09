@@ -18,9 +18,11 @@
  * @todo Define methods to control when the root generator is started
  * @todo Define methods of bootstrapping from root generator start
  */
-export default function createBranchGenerator(source) {
-  let promise = null;
-  let resolvePromise = null;
+export default function createBranchGenerator<T>(
+  source: AsyncGenerator<T>
+): () => AsyncGenerator<T> {
+  let promise: Promise<T>;
+  let resolvePromise: (value: T) => void;
   let renewPromise = () =>
     (promise = new Promise((resolve) => (resolvePromise = resolve)));
 
@@ -35,8 +37,8 @@ export default function createBranchGenerator(source) {
   // that is why we invoke source
   async function produce() {
     renewPromise();
-    for await (const msg of source()) {
-      console.log('base > ' + msg);
+    for await (const msg of source) {
+      console.log("base > " + msg);
       resolvePromise(msg);
       renewPromise();
     }
