@@ -1,4 +1,4 @@
-import { createObservableFromObj } from '../src/create-observed-object.js';
+import { createObservableFromObj } from "../src/create-observed-object.js";
 
 const { data, observe } = createObservableFromObj({
   cart: [],
@@ -6,7 +6,7 @@ const { data, observe } = createObservableFromObj({
 
 async function cache() {
   for await (const snapshot of observe()) {
-    console.log(`caching >> ${JSON.stringify(snapshot.target)}`);
+    console.log(`caching >> ${JSON.stringify(snapshot)}`);
   }
 }
 cache();

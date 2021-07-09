@@ -1,20 +1,24 @@
-import { bufferStream } from '../src/buffered-stream.js';
-import { combineStreams } from '../src/combine-streams.js';
+import { bufferStream } from "../src/create-buffered-stream.js";
+import {
+  createMergedStream,
+  MetadataWrapped,
+} from "../src/create-merged-stream.js";
 import {
   randomTimedStream,
+  TimeMsg,
   withIndexErrorLogging,
-} from '../helpers/helpers.js';
+} from "../src/utils.js";
 
 const BUFFER_FLUSH_MS = 5;
 const LATENCY_MS = 5;
 const LAP_MS = 25;
 
-const getTimeFromMsg = (msg) => msg.value.timestamp;
+const getTimeFromMsg = (msg: MetadataWrapped<TimeMsg>) => msg.value.timestamp;
 
 async function bufferDemo() {
-  const combinedStream = combineStreams(
-    randomTimedStream('a', LATENCY_MS, LAP_MS),
-    randomTimedStream('b', LATENCY_MS, LAP_MS)
+  const combinedStream = createMergedStream(
+    randomTimedStream("a", LATENCY_MS, LAP_MS),
+    randomTimedStream("b", LATENCY_MS, LAP_MS)
   );
 
   const combinedBufferedStream = bufferStream(
