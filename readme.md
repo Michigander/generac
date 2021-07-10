@@ -1,4 +1,4 @@
-# Generac
+# Generac ⚡️
 
 A collection of utilities for building systems based on asynchronous iterables.
 
