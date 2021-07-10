@@ -21,15 +21,17 @@
 export default function createBranchGenerator<T>(
   source: AsyncGenerator<T>
 ): () => AsyncGenerator<T> {
+  let last: T;
   let promise: Promise<T>;
   let resolvePromise: (value: T) => void;
   let renewPromise = () =>
     (promise = new Promise((resolve) => (resolvePromise = resolve)));
 
   async function* consume() {
+    yield last;
     while (true) {
-      const gift = await promise;
-      yield gift;
+      const next = await promise;
+      yield next;
     }
   }
 
