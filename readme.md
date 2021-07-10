@@ -1,6 +1,6 @@
-# JS Generator Patterns
+# Generac
 
-This is a collection of utilities for building systems based on asynchronous iterables.
+A collection of utilities for building systems based on asynchronous iterables.
 
 ## Included
 
