@@ -45,6 +45,7 @@ export default function createBranchGenerator<T>(
     renewPromise();
     for await (const msg of source) {
       console.log("base > " + msg);
+      last = msg;
       resolvePromise(msg);
       renewPromise();
     }
