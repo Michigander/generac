@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>⚡️ Generac Demos</title>
+    <script type="module" src="../build/demos/browser-demo.js"></script>
+  </head>
+  <script></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: black;
+    }
+
+    #feed {
+      z-index: 1000;
+      width: 100%;
+      height: 100%;
+    }
+
+    #overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1000000;
+    }
+  </style>
+  <body>
+    <video id="feed" autoplay muted playsinline></video>
+    <canvas id="overlay"></canvas>
+  </body>
+</html>

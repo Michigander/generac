@@ -21,4 +21,8 @@ A collection of utilities for building systems based on asynchronous iterables.
 - build demo UI using lit-html async iterable template support
 - extract the wait for promise pattern
 - better define the division between generator functions and their returned objects in these utilities - for example, when should a utility take functions over objects? when should a utility call a passed function? return a function or an object?
-- selectors should support an equality guard for only emitting on change 
+- selectors should support an equality guard for only emitting on change
+
+## Demo ideas
+
+- declare your github repo's readme
