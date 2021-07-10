@@ -10,6 +10,7 @@ export function createObservableFromObj<DATA>(obj: DATA) {
   renewPromise();
 
   async function* observe() {
+    yield obj;
     while (true) {
       const post = await promise;
       yield post;

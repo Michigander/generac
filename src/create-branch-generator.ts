@@ -28,7 +28,11 @@ export default function createBranchGenerator<T>(
     (promise = new Promise((resolve) => (resolvePromise = resolve)));
 
   async function* consume() {
-    yield last;
+    if (last) {
+      // @todo add ability to bootstrap from full history
+      yield last;
+    }
+
     while (true) {
       const next = await promise;
       yield next;
