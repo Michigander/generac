@@ -8,7 +8,7 @@ A collection of utilities for building systems based on asynchronous iterables.
 - **branching** - allows multiple consumers for the same iterable
 - **buffering** - combine streams with a time buffer to help ensure correct order
 - **accumulators** - stream data that is an accumulation function over multiple sources
-- **mutation observer** - stream in memory obsject mutations
+- **mutation observer** - stream in memory object mutations
 
 ## Todos & Ideas
 
