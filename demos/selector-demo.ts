@@ -8,7 +8,9 @@ const firstSource = createObservableFromObj({
     email: null,
   },
 });
+
 const secondSource = randomStream;
+
 setTimeout(() => (firstSource.data.user.name = "g"), 2000);
 
 async function demo() {
